@@ -1,8 +1,23 @@
-.App {
- width: 960px;
- margin: auto;
- display: grid;
- grid-template-columns: 1fr 1fr 1fr;
+.app {
+  width: 960px;
 }
 
+.inventory {
+  display: flex;
+  flex-direction: row;
+  /* width: 960px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2vh; */
+}
 
+.itemContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-grid {
+  padding: 5vh;
+}
