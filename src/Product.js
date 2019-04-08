@@ -1,4 +1,5 @@
 import React from "react";
+import "./Product.css";
 
 const Product = props => {
   return (
@@ -6,6 +7,7 @@ const Product = props => {
       <h1>{props.title}</h1>
       <p>{props.desc}</p>
       <p>${props.price}</p>
+      <p>{props.cat}</p>
     </div>
   );
 };

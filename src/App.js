@@ -2,27 +2,39 @@ import React, { Component } from "react";
 import inventory, { categories } from "./inventory";
 import "./App.css";
 import Product from "./Product";
+import CategoryButton from "./Category-Button";
 
 class App extends Component {
+  state = { currentCategory: null }
   render() {
     const cat = categories.map(cat => {
-      return <button key={cat}>{cat} </button>;
+      return <CategoryButton
+        key={cat}
+        cat={cat}
+        onClick={
+          (cat) => this.setState({ currentCategory: cat })
+        } />;
     });
 
-    const item = inventory.map(item => {
+    // expression ? value:value
+    const item = inventory.filter((item) => {
+      return item.category === this.state.currentCategory || this.state.currentCategory === null
+    }).map((item, i) => {
+      const { name, description, price } = item
       return (
         <Product
-          key={1}
-          title={item.name}
-          desc={item.description}
-          price={item.price}
+          key={`${name}-${i}`}
+          title={name}
+          desc={description}
+          price={price}
+          cat={this.category}
         />
       );
     });
 
     return (
-      <div className="inventory">
-        <div>{cat} </div>
+      <div className="inventory" >
+        <div className="catButtonContainer">{cat} </div>
         <div className="itemContainer">{item}</div>
       </div>
     );
