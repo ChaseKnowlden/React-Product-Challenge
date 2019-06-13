@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import Title from './Title';
 import inventory, { categories } from "./inventory";
 import "./App.css";
 import Product from "./Product";
 import CategoryButton from "./Category-Button";
 
 class App extends Component {
+
   state = { currentCategory: null }
   render() {
     const cat = categories.map(cat => {
@@ -14,6 +16,7 @@ class App extends Component {
         onClick={
           (cat) => this.setState({ currentCategory: cat })
         } />;
+
     });
 
     // expression ? value:value
@@ -38,6 +41,14 @@ class App extends Component {
         <div className="itemContainer">{item}</div>
       </div>
     );
+
+    return (
+      <div className="title" >
+        < Title />
+
+      </div>
+    );
+
   }
 }
 
